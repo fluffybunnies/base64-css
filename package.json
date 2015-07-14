@@ -1,0 +1,33 @@
+{
+	"name": "base64-css",
+	"version": "0.0.0",
+	"description": "Replace image refs with base64 in css files",
+	"keywords": [
+		"base64",
+		"image",
+		"css",
+		"url",
+		"src"
+	],
+	"homepage": "https://github.com/fluffybunnies/base64-css",
+	"author": "fluffybunnies",
+	"license": "MIT",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:fluffybunnies/base64-css.git"
+	},
+	"dependencies": {
+		"minimist": "1.1.1",
+		"sext": "0.1.6"
+	},
+	"devDependencies": {
+		"tape": "~4.0.0"
+	},
+	"bugs": {
+		"url": "https://github.com/fluffybunnies/base64-css/issues"
+	},
+	"scripts": {
+		"test": "node test/test.js"
+	}
+}
