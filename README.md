@@ -12,6 +12,7 @@ node bin/cli.js -f http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.
 
 
 ## To Do
+- Write tests
 - Update readme to show full api + all opts
 - Accept directory as input
 	- Run against all css files in dir
