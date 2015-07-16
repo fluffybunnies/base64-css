@@ -3,7 +3,7 @@
 */
 var fs = require('fs')
 ,path = require('path')
-,httpGet = require('./lib/http_get')
+,getFile = require('./lib/get_file')
 ,parseSource = require('./lib/parse_source')
 
 module.exports = function(filePath, assetPrefix, callback){
@@ -17,7 +17,7 @@ module.exports = function(filePath, assetPrefix, callback){
 		assetPrefix += '/';
 	//console.log('assetPrefix',assetPrefix);
 
-	getSource(filePath, function(err,data){
+	getFile(filePath, function(err,data){
 		if (err)
 			return callback(err);
 		parseSource(data, assetPrefix, callback);
@@ -25,25 +25,5 @@ module.exports = function(filePath, assetPrefix, callback){
 }
 
 
-function getSource(filePath, cb){
-	if (pathIsRemote(filePath)) {
-		httpGet(filePath, function(err,data){
-			if (err)
-				return cb(err);
-			cb(false, data);
-		});
-	} else {
-		fs.readFile(filePath, function(err,data){
-			if (err)
-				return cb(err);
-			cb(false, data);
-		});
-	}
-}
-
-
-function pathIsRemote(filePath){
-	return /^https?:\/\//.test(filePath);
-}
 
 
