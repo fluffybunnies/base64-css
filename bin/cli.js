@@ -12,9 +12,8 @@ var argv = require('minimist')(process.argv.slice(2))
 
 var filePath = argv.f
 ,assetPrefix = argv.p
-,targetDir = argv._ && argv._[0] || './'
-
-//console.log(argv);process.exit();
+//,targetDir = argv._ && argv._[0] || './'
+targetDir = argv._ && argv._[0] || path.dirname(filePath)
 
 console.log(['filePath: '+filePath, 'assetPrefix: '+assetPrefix, 'targetDir: '+targetDir].join('\n'), '\n');
 

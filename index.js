@@ -15,7 +15,6 @@ module.exports = function(filePath, assetPrefix, callback){
 		assetPrefix = path.dirname(filePath);
 	if (assetPrefix[assetPrefix.length-1] != '/')
 		assetPrefix += '/';
-	//console.log('assetPrefix',assetPrefix);
 
 	getFile(filePath, function(err,data){
 		if (err)
