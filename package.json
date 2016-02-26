@@ -3,9 +3,10 @@
 	"version": "0.0.1",
 	"description": "Replace image refs with base64 in css files",
 	"keywords": [
+		"css",
 		"base64",
 		"image",
-		"css",
+		"encoding",
 		"url",
 		"src"
 	],

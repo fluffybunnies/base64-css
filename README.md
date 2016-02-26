@@ -1,5 +1,5 @@
 # base64-css
-Replace image refs with base64 in css files
+Replace image refs with base64 encoding in css files
 <br /><br />Ex: Localize a library so you aren't reliant on external uptime
 
 #### Before
