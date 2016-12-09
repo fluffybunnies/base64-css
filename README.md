@@ -45,17 +45,28 @@ node bin/cli.js -f http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.
 
 
 ## Api
-Missing files are logged to console.warn and skipped
+Images that cannot be located are logged to console.warn and skipped
 
-### ...
+### baser( filePath[, assetPrefix], callback )
+
+`filePath` Path of CSS file to be parsed; can be local or an http(s) url
+
+`assetPrefix` (optional) Directory to use as base when locating images; can be local or an http(s) url; if omitted, normal CSS rules are followed
+
+`callback` Format `(err,parsedSource)`, which can be passed to `fs.writeFile`
+
+### node bin/cli.js -f file_path [-p asset_prefix] [target_directory]
+
+`-f file_path` Path of CSS file to be parsed
+
+`-p asset_prefix` (optional) Asset prefix override
+
+`target_directory` (optional) Directory in which to save result; if omitted, source file is updated in place
+
 
 
 ## To Do
-- Update readme to show full api + all opts
-- Accept directory as input
+- Accept directory as input, as opposed to just a single css file
 	- Run against all css files in dir
-- Assign default image type if not determinable
-	- Normalize jpeg/jpg
-- Finish ToDo test cases in test/test.js
 
 
