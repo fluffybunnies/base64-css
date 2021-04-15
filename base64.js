@@ -19,14 +19,13 @@ fs.readFile(filePath, (err,data) => {
 			throw new Error('Missing file: ' + filePath)
 		}
 		throw new Error('Error fetching file: ' + filePath)
-		return done()
 	}
 	const output = getPrefixFromFilename(filePath) + data.toString('base64')
 	console.log(output)
 })
 
 
-function getPrefixFromFilename(fn)  {
+function getPrefixFromFilename(fn) {
 	let ext = fn.split('.').pop().toLowerCase()
 	if (ext == 'jpg') {
 		ext = 'jpeg'
