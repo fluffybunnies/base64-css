@@ -14,7 +14,6 @@ filePath = path.join(__dirname, filePath)
 
 
 fs.readFile(filePath, (err,data) => {
-	const prefix = 'data:image/'+getContentTypeFromFilename(filePath)+';base64,'
 	if (err) {
 		if (err.code == 'ENOENT') {
 			throw new Error('Missing file: ' + filePath)
@@ -22,16 +21,18 @@ fs.readFile(filePath, (err,data) => {
 		throw new Error('Error fetching file: ' + filePath)
 		return done()
 	}
-	const output = prefix+data.toString('base64')
+	const output = getPrefixFromFilename(filePath) + data.toString('base64')
 	console.log(output)
 })
 
 
-function getContentTypeFromFilename(fn)  {
-	var ext = fn.split('.').pop().toLowerCase()
+function getPrefixFromFilename(fn)  {
+	let ext = fn.split('.').pop().toLowerCase()
 	if (ext == 'jpg') {
 		ext = 'jpeg'
+	} else if (ext == 'woff' || ext == 'woff2') {
+		return 'data:application/x-font-woff;charset=utf-8;base64,'
 	}
-	return ext
+	return 'data:image/' + ext + ';base64,'
 }
 
